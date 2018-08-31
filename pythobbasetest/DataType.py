@@ -82,5 +82,38 @@ H LOVE Y
 """
 print(str6)
 
+#转义字符
+
+#格式化字符
+#%d 整数
+#%s 字符串
+s = '%s are my angle.'
+print(s)  # %s are my angle. 如果后面没有跟%，%s表示字符串%s
+print(s % 'you')  #you are my angle.
+print(s%'you')  #you are my angle
+
+#注意以下表达的出错原因
+#如果字符串中有占位符，则有几个占位符必须用几个实际内容代替，或者一个也不要
+s = 'I am %s,i am %d years old'
+print(s) #I am %s,i am %d years old
+
+#print(s%'yanxi')  #TypeError： not enough arguments for format string
+#print(s%'yangxi',10) #TypeError： not enough arguments for format string
+
+print(s%('yanxi',10)) #I am yanxi,i am 10 years old
+
+#format 函数格式化字符串
+#推荐使用
+#在使用上以 {} 和：代替%，后面用format带参数完成
+s = 'you are {} angle'.format('my')
+print(s) #you are my angle
+
+s = 'Yes,i am {1} years old,I love love {0} and i am {1} years old'.format('yanxi',10)
+print(s)#Yes,i am 10 years old,I love love yanxi and i am 10 years old
+
+#None 表示什么都没有
+#如果函数没有返回值，可以返回None
+#用来占位
+#用来解除变量绑定
 
 #3.List 列表
