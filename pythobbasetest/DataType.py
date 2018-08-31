@@ -116,4 +116,6 @@ print(s)#Yes,i am 10 years old,I love love yanxi and i am 10 years old
 #用来占位
 #用来解除变量绑定
 
-#3.List 列表
+#3.List 列表，用中括号表示
+#range 生成一个数字序列，具体范围可以设定，注意，python中数字范围一般（range）包含左边不包含右边的数字，前闭后开
+#rangeint是特别的，左右都包括
