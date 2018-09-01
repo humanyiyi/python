@@ -43,6 +43,8 @@ else:
     语句1
     语句2
     ...
+    
+比如：性别，非男即女
 '''
 
 '''
@@ -51,6 +53,14 @@ input的作用：
 2.接受用户输入的内容并返回到程序
 3.input返回的内容一定是字符串类型
 '''
+#sex = input('请输入性别：') #input 在屏幕上输入字符串
+sex = 'nan'
+if sex == 'nan':
+    print('此人性别为：',sex)
+else:
+    print('性别为女')
+
+
 
 '''
 多路分支 elif 可以有很多个，else可以没有，多路分支只会选一个执行
@@ -73,5 +83,22 @@ else:
     语句2
     ...
     
-例：score 成绩 学生成绩问题
+例：score 成绩 学生成绩（0-100）问题 90以上 A，80-90 B，70-80 C，60-70 D，60以下 E
 '''
+
+score = input('学生成绩：')
+
+score = int(score)  #如果不把输入的字符串转换成数值型，则会报错 TypeError: '<=' not supported between instances of 'int' and 'str'
+
+if 90 <= score < 100:
+    print('该学生成绩为：A')
+elif 80 <= score < 90:
+    print('该学生成绩为：B')
+elif 70 <= score < 80:
+    print('该学生成绩为：C')
+elif 60 <= score < 70:
+    print('该学生成绩为：D')
+elif 0 <= score < 60:
+    print('该学生成绩为：E')
+else:
+    print('输入的分数错误')
