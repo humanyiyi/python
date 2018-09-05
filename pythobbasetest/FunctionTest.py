@@ -164,6 +164,8 @@ stu(name = 'jinchen')
  list一个星号，dict两个星号
 '''
 
+
+
 #函数返回值
 
 def func(name,age):
@@ -174,3 +176,56 @@ def func(name,age):
     :return:
     '''
     pass
+
+'''
+函数的作用域
+'''
+'''
+变量作用域
+ 变量的作用范围限制
+ 分类：
+      1.全局 global：在函数外部定义
+      2.局部 local：在函数内部定义
+ 变量作用范围
+      全局：
+      局部：
+ LEGB原则：
+     L（Local）局部作用域
+     E（Enclosing function local) 外部嵌套函数作用域
+     G(Global module) 函数定义所在的模块作用域
+     B（Buildin）：python内置模块的作用域 
+'''
+
+#提升局部变量为全局变量，  使用global https://www.cnblogs.com/summer-cool/p/3884595.html
+
+#globals,locals函数
+#通过global和locals显示出局部变量和全局变量
+
+#eval()函数：把一个字符串当成一个表达式执行，返回表达式执行后的结果
+x = 100
+y = 200
+z1 = x + y
+#z2 = eval(x + y) #报错TypeError: eval() arg 1 must be a string, bytes or code object
+z2 = eval("x + y")
+print(z1)
+print(z2)
+
+#exec 类似eval，但是没有返回结果
+
+#递归函数
+ #函数直接或者间接的调用自己
+ #优点：简洁，容易理解
+ #缺点：对递归深度有限制，消耗资源大
+ #python中对递归深度有限制，超过限制报错
+ #在写递归程序的时候，注意结束条件
+
+x = 0
+def func():
+    global x
+    x += 1
+    print(x)
+    func()
+func()
+
+
+#递归的例子： 斐波那契数列

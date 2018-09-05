@@ -116,6 +116,75 @@ print(s)#Yes,i am 10 years old,I love love yanxi and i am 10 years old
 #用来占位
 #用来解除变量绑定
 
-#3.List 列表，用中括号表示
+#内置数据结构（变量类型）list，set，tuple，dict
+
+#3.List 列表，用中括号表示：一组有顺序的数据的组合
 #range 生成一个数字序列，具体范围可以设定，注意，python中数字范围一般（range）包含左边不包含右边的数字，前闭后开
 #rangeint是特别的，左右都包括
+
+#空列表
+l1 = []
+print(type(l1)) #<class 'list'>
+#创建带值得列表
+l2 = [200]
+print(type(l2)) #<class 'list'>
+print(l2) #[200]
+l3 = [1,2,3,4,2,4,6]
+print(l3) #[1, 2, 3, 4, 2, 4, 6]
+l4 = list()
+print(type(l4)) #<class 'list'>
+#列表访问，1.使用下标（索引） 2.
+
+l = [1,2,5,3,2,5]
+for i in range(0,len(l)): #AttributeError: 'list' object has no attribute 'lenth'
+    print(l[i])
+
+#分片操作,不写左边默认为0，右边下标值加1，即取到最后一个值
+print(l[1:4]) #[2, 5, 3]
+print(l[:4]) #[1, 2, 5, 3]
+print(l[1:]) #[2, 5, 3, 2, 5]
+print(l[:]) #[1, 2, 5, 3, 2, 5]
+
+#分片可以控制增长幅度，默认为1
+print(l[1:5:1]) #[2, 5, 3, 2]
+
+#每次增长两个
+print(l[1:5:2]) #[2, 3]
+
+#下标可以超出范围，超出后不在考虑多余的下标内容
+print(l[2:10]) #[5, 3, 2, 5]
+print(l[-7:10]) #[1, 2, 5, 3, 2, 5]
+
+#负数作为下标，从右往左，从 -1 开始，分片默认从左往右
+print(l[-2:10]) #[2, 5]
+print(l[-4:-2]) #[5, 3]
+
+#注意下面的执行结果
+print(l[-4:-2:-1])
+
+#分片是生成一个新的list还是截取原来的list的部分
+#可以用内置函数id查看，负责显示一个变量或者数据的唯一确定编号
+a = 100
+b = 200
+print(id(a)) #1503295648
+print(id(b)) #1503298848
+c = a
+print(id(c)) #1503295648
+a = 101
+print(id(a)) #1503295680
+print(id(c)) #1503295648
+print(a)
+print(c)
+
+l = [1,2,3]
+ll =l[:]
+lll = [1,2,3]
+llll = l
+print(id(l)) #921050573576
+print(id(ll)) #921050573576
+print(id(lll)) # 788906638024
+print(id(llll)) #496593890056
+
+l[1]= 6
+print(l) #[1, 6, 3]
+print(llll) #[1, 6, 3]
