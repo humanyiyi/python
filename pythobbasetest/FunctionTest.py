@@ -143,6 +143,8 @@ def stu(**kwargs):
     print('hello ')
     print(type(kwargs))
     #对于字典的访问
+    for k in kwargs.keys():
+        print(k, "--->", kwargs[k])
 
 stu(name = 'yanxi', age = 18, addr = 'beijing', love = 'wenheng', work = 'huajia')
 print('*' * 20)
@@ -163,6 +165,24 @@ stu(name = 'jinchen')
  
  list一个星号，dict两个星号
 '''
+def func(*args):
+    print(type(args))
+    for i in args:
+        print(i)
+
+func(1,2,'a',"abc")
+l = [1,2,3,'a']
+func(l)  #[1, 2, 3, 'a'] 直接输入list，会看作一个参数处理
+func(*l)  #收集参数如果输出是list可以用 *list解包
+
+def func(**kwargs):
+    for k,v in kwargs.items():
+        print(k, "--->", v)
+
+func(one=1,two=2,three=3)
+dict = {"name":"yanxi","age":18}
+#func(dict) #TypeError: func() takes 0 positional arguments but 1 was given 字典集合参数不解包报错
+func(**dict)
 
 
 
@@ -229,6 +249,18 @@ func()
 
 
 #递归的例子： 斐波那契数列
+def func(n):
+    if n == 1:
+        return 1
+    if n == 2:
+        return 1
+    return func(n - 1) + func(n - 2)
+
+print(func(1)) # 1
+print(func(2))# 1
+print(func(7))  # 13
+
+
 #汉诺塔问题： 1.每次只能移动一个盘子 2.任何一次移动，三个塔的状态必须是小盘子在上，大盘子在下
 
 
