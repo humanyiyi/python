@@ -136,8 +136,7 @@ print(type(l4)) #<class 'list'>
 #列表访问，1.使用下标（索引） 2.
 
 l = [1,2,5,3,2,5]
-for i in range(0,len(l)): #AttributeError: 'list' object has no attribute 'lenth'
-    print(l[i])
+print(l[2])
 
 #分片操作,不写左边默认为0，右边下标值加1，即取到最后一个值
 print(l[1:4]) #[2, 5, 3]
@@ -188,3 +187,95 @@ print(id(llll)) #496593890056
 l[1]= 6
 print(l) #[1, 6, 3]
 print(llll) #[1, 6, 3]
+
+#del删除
+l = [1,2,3,4,5,6]
+print(id(l)) #589957495496
+del l[2]
+print(l) # [1, 2, 4, 5, 6]
+print(id(l)) #589957495496
+
+#del一个变量后不能再继续使用此变量
+l = [1,2]
+print(l)
+del l
+#print(l)  #NameError: name 'l' is not defined
+
+#列表相加
+l1 = [1,2,3]
+l2 = [7,8,10]
+print(l1 + l2)  #[1, 2, 3, 7, 8, 10]
+
+#使用乘号操作列表
+l3 = [1,2,3]
+print(l3 * 3) #[1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+#成员资格运算： 判断一个元素是否在list里面  in 和 not in
+l = [1,2,3,4,5]
+a = 3
+b = 8
+print(a in l) #True
+print(a not in l) #False
+print(b in l) # False
+print(b not in l) #True
+
+#遍历list，一般用for，不用while
+l = [1,2,3,4]
+for i in l:
+    print(i)
+
+
+#双层列表循环
+a = [["one",1],["two",2],["three",3]]
+for k,v in a:
+    print(k, "----", v) #one ---- 1   two ---- 2    three ---- 3
+
+#双层列表变异
+a = [["one", 1, 'eins'], ["two", 2], ["three", 3,4,5,6]]
+#for k,v in a:
+#    print(k, "----", v)  #ValueError: too many values to unpack (expected 2)
+a = [["one", 1, 'eins'], ["two", 2, "zwei"], ["three", 3, "drei"]]
+for k,v,w in a:
+    print(k,"---", v, "---", w)
+
+
+#列表内涵 list content
+
+a = ['a', 'b', 'c']
+#用list a创建一个list b
+#下面代码的含义是，对于所有a中的元素，逐个放入新列表b中
+b = [i for i in a]
+print(b) #['a', 'b', 'c']
+
+#对a列表所有元素乘以10
+a = [1,2,3,4,5]
+b = [ i * 10 for i in a]
+print(b) #[10, 20, 30, 40, 50]
+
+#取a列表中偶数
+a = [i for i in range(1,25)]
+b = [m for m in a if m % 2 == 0]
+print(b) #[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+
+#列表可以嵌套
+a = [i for i in range(1,4)]
+print(a) #[1, 2, 3]
+b = [i for i in range(100,400) if i % 100 == 0]
+print(b)  #[100, 200, 300]
+
+c = [ m + n for m in a for n in b]
+print(c) #[101, 201, 301, 102, 202, 302, 103, 203, 303]
+
+#嵌套加判断
+d = [ m + n for m in a for n in b if m < 3]
+print(d) #[101, 201, 301, 102, 202, 302]
+
+#list 常用函数 len，max，min，list
+l = [1,2,3]
+print(len(l)) #3
+print(min(l)) #1
+print(max(l)) #3
+
+#list函数：将其他格式的数据转换成list，转换是可迭代的
+s = "you are my angle"
+print(list(s))  #['y', 'o', 'u', ' ', 'a', 'r', 'e', ' ', 'm', 'y', ' ', 'a', 'n', 'g', 'l', 'e']  空格也是字符

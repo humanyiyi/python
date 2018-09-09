@@ -224,8 +224,25 @@ def func():
     global x
     x += 1
     print(x)
-    func()
+    #func()
 func()
 
 
 #递归的例子： 斐波那契数列
+#汉诺塔问题： 1.每次只能移动一个盘子 2.任何一次移动，三个塔的状态必须是小盘子在上，大盘子在下
+
+
+def move(n,a,b,c):
+    if n == 1:
+        print(a, '-->', c)
+        return None
+    move(n - 1, a, c, b)
+    print(a, '-->', c)
+    move(n - 1, b, a, c)
+
+a = 'A'
+b = 'B'
+c = 'C'
+#move(1,a,b,c)
+#move(2,a,b,c)
+move(3,a,b,c)
