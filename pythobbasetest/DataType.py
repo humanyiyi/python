@@ -279,3 +279,102 @@ print(max(l)) #3
 #list函数：将其他格式的数据转换成list，转换是可迭代的
 s = "you are my angle"
 print(list(s))  #['y', 'o', 'u', ' ', 'a', 'r', 'e', ' ', 'm', 'y', ' ', 'a', 'n', 'g', 'l', 'e']  空格也是字符
+print(list(range(1,10))) #[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#关于列表的函数
+#append函数 插入一个内容
+a = [i for i in range(1,10)]
+print(a)
+a.append(100)
+print(a) #[1, 2, 3, 4, 5, 6, 7, 8, 9, 100]
+
+#insert 指定位置插入 insert(index,data)
+a.insert(2,99)
+print(a) #[1, 2, 99, 3, 4, 5, 6, 7, 8, 9, 100]
+
+#删除 del， pop 把最后一个元素取出来
+last_ele = a.pop()
+print(last_ele) #100
+print(a) #[1, 2, 99, 3, 4, 5, 6, 7, 8, 9]
+
+#remove 从列表中删除指定的值的元素:
+#注：如果元素不在list内会出现什么状况，怎么解决
+print(id(a)) #175305036040
+a.remove(99)
+print(id(a)) #175305036040
+print(a) #[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#clear ：清空
+print(a)
+print(id(a)) #[1, 2, 3, 4, 5, 6, 7, 8, 9]
+a.clear() #726842249544
+print(a) #[]
+print(id(a)) #726842249544
+
+#reverse 翻转
+a = [1,2,3,4]
+print(id(a))
+a.reverse()
+print(a)
+print(id(a))
+
+#extend 扩展列表，两个列表，把一个直接拼接到后一个上
+
+#count 查找列表中指定值（元素）的个数
+
+#copy 拷贝，浅拷贝
+#list变量是传地址操作
+#深拷贝 需要特定工具
+
+#4.元组 tuple 不可更改的list
+#元组创建 t = ()
+#创建一个空元组
+t = ()
+print(type(t)) #<class 'tuple'>
+
+#创建一个只有一个元素的元组，需要还元素后面加，
+t = (1)
+print(type(t))  #<class 'int'>
+t = (1,)
+print(type(t)) #<class 'tuple'>
+#创建多个值
+t= (1,2,3,4)
+print(type(t))
+l = [1,2,3,4]
+t =tuple(l)
+print(t) #(1, 2, 3, 4)
+print(type(t)) #<class 'tuple'>
+
+#元组的特性 1.序列表，有序   2.元组数据值可以访问，不能修改  3.元组数据可以是任意类型
+# 4.list所有的特性除了修改外，元组都具备，list的操作，索引，分片，序列相加，相乘，成员资格操作元组都有
+t = (1,1,2,3)
+print(t[2]) #2
+#t[2]= 0 #TypeError: 'tuple' object does not support item assignment 元组不能修改，可以访问
+#3.元组数据可以是任意类型
+t = ('a',1,2)
+print(type(t))
+print(t) #('a', 1, 2)
+
+#元组可以相加
+t1 = (1,2,3)
+t2 = (1,2,1.2)
+t1 = t1 + t2
+print(type(t1))
+print(t1) #(1, 2, 3, 1, 2, 1.2)，这里可以赋值给t1是因为指向的不是同一块地址
+#元组相乘
+t = t1 * 2
+print(t) #(1, 2, 3, 1, 2, 1.2, 1, 2, 3, 1, 2, 1.2)
+
+#分片
+print(t[4:])
+print(t[4:3]) #()
+print(t[4:6]) #(2, 1.2)
+print(t[0::2]) #下标步长为2  (1, 3, 2, 1, 3, 2)
+print(t[1:7:2]) #(2, 1, 1.2)
+#元组成员资格运算
+a = 3
+print(a in t)
+print(a not in t)
+a = 5
+print(a in t)
+print(a not in t)
