@@ -378,3 +378,142 @@ print(a not in t)
 a = 5
 print(a in t)
 print(a not in t)
+
+#元组函数 tuple ，list可以转换成tuple
+
+#元组函数min,max，基本和list通用，除了修改函数
+#如果需要查找的数字是多个，则返回第一个
+#元组变量交换法
+a = 1
+b = 3
+a,b = b,a
+print(a) #3
+print(b) #1
+
+#set集合
+#集合是高中数学中的一个概念
+#一堆确定的无序的唯一的数据，集合中每一个数据成为一个元素
+#集合的定义
+s = set()
+print(type(s)) #<class 'set'>
+print(s) #set（）
+
+#此时，大括号内一定要有值，否则定义的是一个dict类型
+s = {1,2,3}
+print(type(s))
+print(s)
+
+'''
+集合的特征：
+集合内数据无序，即无法使用索引和分片
+集合内部袁术具有唯一性，可以也拿过来排除重复数据
+集合内的数据，str，int，float，tuple，即内部只能放置可hash的数据
+'''
+
+#集合序列操作
+#集合检测
+#in， not in
+
+#集合遍历操作
+
+#集合的内涵
+#普通集合内涵： 以下集合在初始化后自动过滤重复元素
+
+#带条件的集合内涵
+
+#多循环的集合函数
+
+#集合函数 len，max，min 跟其他基本函数一致
+#set 生成一个集合
+
+#add 向集合内添加元素
+
+#clear 清空数据
+
+#copy 拷贝
+#remove 移除指定的值，直接改变原有值，如果要删除的值不存在，报错
+#discard 移除集合中指定的值 ，和remove一样，但是如果删除的值不存在，不报错
+s = {1,23,4,3,6}
+s.remove(4)
+print(s)
+s.discard(1)
+print(s)
+
+print("*" * 20)
+s.discard(9)
+print(s)
+#s.remove(8)
+#print(s) #KeyError:
+
+#pop 随机移除一个元素  注：在网上查一下
+s = {1,3,4,5,2}
+s.pop()
+print(s)
+s.pop()
+print(s)
+s.pop()
+print(s)
+
+#交集  intersection
+#差集 difference
+#并集  union
+#issubset 检查一个集合是否为另一个子集
+#issuperset 检查一个集合是否为另一个超集
+
+#集合的数字操作
+#frozen set 冰冻集合 冰冻集合是不可以进行任何修改的集合，是一种特殊的集合
+
+#6.字典 dict 字典是一种数组集合，没有顺序的数组数据，数据以键值对形式出现
+#字典的创建
+#创建空字典1
+
+#创建空字典2
+
+#用dict创建有内容字典1
+
+#用dict创建有内容字典2，利用关键字参数
+
+#字典的特征
+#字典是序列类型，但是是无序序列，没有分片和索引
+#字典中的数据每个都有键值对组成，key 可hash，value任何值
+
+#成员检测 in， not in 检测的是key
+
+#字典遍历
+d = {"one":1,"two":2, "three":3}
+for k in d:
+    print(k,d[k])
+
+for k in d.keys():
+    print(k,d[k])
+
+for v in d.values():
+    print(v)
+
+for k,v in d.items():
+    print(k,'---',v)
+
+#字典生成式
+d = {"one":1,"two":2, "three":3}
+dd = {k:v for k,v in d.items()}
+print(dd)
+
+d = {"one":1,"two":2, "three":3}
+dd = {k:v for k,v in d.items() if v % 2 == 0}
+print(dd)
+
+#字典的相关函数 len，max，min，dict
+#str(字典): 返回字典的字符串格式
+
+#clear 清空
+#items 返回字典的键值对组成的元组格式
+#keys 返回字典的键组成的一个结构
+#values 返回字典中值得一个结构，可迭代
+
+#get：根据指定键返回相对应的值，，好处是可以设置默认值
+
+#fromkeys  使用指定的序列作为键，使用一个值作为字典的所有的键的值
+
+l = {"1","2","3"}
+d = dict.fromkeys(l,"aaa")
+print(d)  #{'3': 'aaa', '2': 'aaa', '1': 'aaa'}
